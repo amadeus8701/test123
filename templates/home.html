@@ -6,18 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Django</h1>
-
-    <table>
-     <tr>
-       <td width="50%">
-        <video src="https://www.youtube.com/watch?v=hMBJYgHgWUk" style="width:400px" />
-       </td>
-    <td width="50%">
-나의 비디오...
- </td>
-     </tr>
-    </table>
-
-</body>
+    <body style="background-color: black">
+        <h1 style="color: crimson">Cameras</h1>
+        <a href="{% url 'add_stream' %}">Add Camera</a>
+     
+        <div class="row mb-3 text-center">
+        {% for camera in cameras %}
+            <h2 style="color: crimson">{{ stream.stream_name }}</h2>
+            <div class="col-6 themed-grid-col">.col-6</div>
+            <img src="{% url 'video_feed' stream.id %}" width="640" height="480" />
+            <div class="col-6 themed-grid-col">.col-6</div>
+        {% endfor %}
+        </div>
+    </body>
 </html>
